@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DJ Playlist Companion – Beta Access</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #121212; color: #e0e0e0; margin: 0; padding: 40px 20px; text-align: center; }
+    .container { max-width: 800px; margin: 0 auto; }
+    h1 { color: #fff; margin-bottom: 10px; }
+    p.subtitle { color: #a0a0a0; font-size: 1.1rem; margin-bottom: 30px; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000; border-radius: 8px; margin-bottom: 40px; }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+    .features { text-align: left; display: inline-block; margin-bottom: 40px; }
+    .features li { margin-bottom: 8px; font-size: 1rem; }
+    .signup-box { background: #1e1e1e; padding: 30px; border-radius: 8px; border: 1px solid #333; }
+    input[type="email"] { padding: 12px; width: 60%; max-width: 300px; border-radius: 4px; border: 1px solid #444; background: #2a2a2a; color: #fff; }
+    button { padding: 12px 24px; border-radius: 4px; border: none; background: #0066cc; color: #fff; font-weight: bold; cursor: pointer; }
+    button:hover { background: #0052a3; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>DJ Playlist Companion</h1>
+    <p class="subtitle">Advanced management & cleanup tools for your Engine DJ library.</p>
+    
+    <!-- Video Demo -->
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/6UIPTuI5QEQ" allowfullscreen></iframe>
+    </div>
+
+    <!-- Features -->
+    <ul class="features">
+      <li>✔ Automatic playlist sorting</li>
+      <li>✔ Genre & Artist name cleanup</li>
+      <li>✔ Track relocation</li>
+      <li>✔ Set arranger & History search</li>
+    </ul>
+
+    <!-- Sign-up Form -->
+    <div class="signup-box">
+      <h3>Join the Closed Beta</h3>
+      <p>Get instant access to the beta release and updates.</p>
+      <!-- Hier Formspree oder Brevo Formular-Action eintragen -->
+      <form action="https://formspree.io/f/DEINE_FORM_ID" method="POST">
+        <input type="email" name="email" placeholder="Enter your email" required>
+        <button type="submit">Request Beta Access</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
