@@ -50,7 +50,8 @@ Danach http://localhost:8080/ im Browser öffnen.
   testen (`python -m http.server`) und nicht per Doppelklick auf die `index.html`:
   bei einem `file://`-Aufruf öffnet der Play-Button das Video direkt auf YouTube.
 - Unter dem Video gibt es zusätzlich den Link „Auf YouTube öffnen“ als Fallback.
-- Marken: `Camelot` und `Open Key` werden bewusst nicht genannt – es ist von
-  **Harmonic Key** und **Key Flow** die Rede. Engine DJ, Engine OS und Denon DJ sind
-  Warenzeichen von inMusic Brands Inc.; dieses Projekt ist unabhängig und steht in
-  keiner Verbindung zu inMusic Brands Inc. oder Denon DJ.
+- Marken: Produkt- und Markennamen von Mitbewerbern werden bewusst **nicht**
+  genannt – es ist von **Harmonic Key** und **Key Flow** die Rede. Engine DJ,
+  Engine OS und Denon DJ sind Warenzeichen von inMusic Brands Inc.; dieses
+  Projekt ist unabhängig und steht in keiner Verbindung zu inMusic Brands Inc.
+  oder Denon DJ.
