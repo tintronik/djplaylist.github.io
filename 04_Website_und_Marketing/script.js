@@ -175,7 +175,8 @@ const CONFIG = {
         play: "Watch the demo",
         playLabel: "Play the demo video",
         iframeTitle: "Video demo of DJ Playlist Companion",
-        note: "The video is hosted on YouTube and only loads after you click play — nothing is requested before that."
+        note: "The video is hosted on YouTube and only loads after you click play — nothing is requested before that.",
+        fallback: "Open on YouTube"
       },
       gallery: {
         eyebrow: "Screenshot showcase",
@@ -485,7 +486,8 @@ const CONFIG = {
         play: "Demo ansehen",
         playLabel: "Demo-Video abspielen",
         iframeTitle: "Video-Demo von DJ Playlist Companion",
-        note: "Das Video liegt auf YouTube und lädt erst, wenn du auf Play klickst — vorher wird nichts übertragen."
+        note: "Das Video liegt auf YouTube und lädt erst, wenn du auf Play klickst — vorher wird nichts übertragen.",
+        fallback: "Auf YouTube öffnen"
       },
       gallery: {
         eyebrow: "Screenshot-Galerie",
@@ -995,33 +997,69 @@ function initGallery() {
   window.addEventListener("resize", galleryResync);
 }
 
+/* YouTube only plays inside an iframe when it can match the embedding origin.
+   Without one the player answers with "error 153" – which is exactly what happens
+   in local file:// previews. So we always send the origin for http(s) pages and
+   fall back to the YouTube watch page when there is no origin at all. */
+function isServedOverHttp() {
+  return window.location.protocol === "http:" || window.location.protocol === "https:";
+}
+
+function videoWatchUrl() {
+  return "https://www.youtube.com/watch?v=" + CONFIG.youtubeId;
+}
+
+function videoEmbedUrl() {
+  const params = new URLSearchParams({
+    autoplay: "1",
+    rel: "0",
+    playsinline: "1",
+    modestbranding: "1"
+  });
+
+  const origin = window.location.origin;
+  if (isServedOverHttp() && origin && origin !== "null") params.set("origin", origin);
+
+  return "https://www.youtube.com/embed/" + CONFIG.youtubeId + "?" + params.toString();
+}
+
 function initVideo() {
   const wrap = $("[data-video]");
   if (!wrap) return;
+
+  $$("[data-video-link]").forEach((link) => link.setAttribute("href", videoWatchUrl()));
 
   const facade = $(".video__facade", wrap);
   const poster = $(".video__poster", wrap);
   if (poster) poster.addEventListener("error", () => poster.classList.add("is-hidden"));
   if (!facade) return;
 
-  facade.addEventListener(
-    "click",
-    () => {
-      const iframe = document.createElement("iframe");
-      iframe.src =
-        "https://www.youtube-nocookie.com/embed/" + CONFIG.youtubeId + "?autoplay=1&rel=0&modestbranding=1";
-      iframe.title = currentDict().video.iframeTitle;
-      iframe.setAttribute(
-        "allow",
-        "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      );
-      iframe.setAttribute("allowfullscreen", "");
-      wrap.textContent = "";
-      wrap.appendChild(iframe);
-      iframe.focus();
-    },
-    { once: true }
-  );
+  let handedOver = false;
+
+  facade.addEventListener("click", () => {
+    if (handedOver) return;
+
+    /* No origin available (file:// preview) – open YouTube instead of a broken player. */
+    if (!isServedOverHttp()) {
+      window.open(videoWatchUrl(), "_blank", "noopener");
+      return;
+    }
+
+    handedOver = true;
+
+    const iframe = document.createElement("iframe");
+    iframe.src = videoEmbedUrl();
+    iframe.title = currentDict().video.iframeTitle;
+    iframe.setAttribute(
+      "allow",
+      "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    );
+    iframe.setAttribute("allowfullscreen", "");
+    iframe.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+    wrap.textContent = "";
+    wrap.appendChild(iframe);
+    iframe.focus();
+  });
 }
 
 function initAccordion() {

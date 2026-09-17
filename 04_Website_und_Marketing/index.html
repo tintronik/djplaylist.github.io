@@ -8,6 +8,8 @@
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#050B18">
   <meta name="color-scheme" content="dark">
+  <!-- The embedded YouTube player needs a real origin/referrer (error 153 without one). -->
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <link rel="canonical" href="https://tintronik.github.io/djplaylist.github.io/04_Website_und_Marketing/">
 
   <meta property="og:type" content="website">
@@ -288,6 +290,11 @@
         </div>
 
         <p class="video__note" data-i18n="video.note">The video is hosted on YouTube and only loads after you click play — nothing is requested before that.</p>
+
+        <a class="video__fallback" href="https://www.youtube.com/watch?v=6UIPTuI5QEQ"
+           target="_blank" rel="noopener noreferrer" data-video-link>
+          <span data-i18n="video.fallback">Open on YouTube</span>
+        </a>
       </div>
     </section>
     <section class="section" id="gallery" aria-labelledby="gallery-title">

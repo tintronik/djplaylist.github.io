@@ -44,7 +44,12 @@ Danach http://localhost:8080/ im Browser öffnen.
 ## Hinweise
 
 - Keine Frameworks, keine Build-Tools, kein Tracking, keine externen Schriftarten.
-- Das YouTube-Video lädt erst nach einem Klick (youtube-nocookie).
+- Das YouTube-Video lädt erst nach einem Klick auf Play (Vorschaubild + Play-Button).
+- Der Embed übergibt die Origin der Seite an YouTube (`origin`-Parameter) – ohne Origin
+  antwortet der Player mit **Fehler 153**. Deshalb die Seite immer über einen Webserver
+  testen (`python -m http.server`) und nicht per Doppelklick auf die `index.html`:
+  bei einem `file://`-Aufruf öffnet der Play-Button das Video direkt auf YouTube.
+- Unter dem Video gibt es zusätzlich den Link „Auf YouTube öffnen“ als Fallback.
 - Marken: `Camelot` und `Open Key` werden bewusst nicht genannt – es ist von
   **Harmonic Key** und **Key Flow** die Rede. Engine DJ, Engine OS und Denon DJ sind
   Warenzeichen von inMusic Brands Inc.; dieses Projekt ist unabhängig und steht in
