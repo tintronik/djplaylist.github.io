@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DJ Playlist Companion — Beta for Engine DJ Libraries</title>
+  <meta name="description" content="DJ Playlist Companion helps Engine DJ users organize, clean, analyze and manage large music collections faster: set arranger, batch metadata cleanup, duplicate cleaner, track relocator and automatic backups.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#050B18">
+  <meta name="color-scheme" content="dark">
+  <link rel="canonical" href="https://tintronik.github.io/djplaylist.github.io/04_Website_und_Marketing/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DJ Playlist Companion">
+  <meta property="og:title" content="DJ Playlist Companion — Beta for Engine DJ Libraries">
+  <meta property="og:description" content="Stop fighting your music library. Organize, clean, analyze and manage your Engine DJ collection faster.">
+  <meta property="og:url" content="https://tintronik.github.io/djplaylist.github.io/04_Website_und_Marketing/">
+  <meta property="og:image" content="https://tintronik.github.io/djplaylist.github.io/04_Website_und_Marketing/assets/logo_dark_bg.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="assets/icon.png">
+
+  <script>
+    /* Resolve the language before the first paint so lang/announcements are correct. */
+    (function () {
+      try {
+        var saved = window.localStorage.getItem('dpc-lang');
+        var browser = (navigator.language || 'en').toLowerCase();
+        var lang = saved === 'de' || saved === 'en' ? saved : (browser.indexOf('de') === 0 ? 'de' : 'en');
+        document.documentElement.lang = lang;
+      } catch (error) {
+        document.documentElement.lang = 'en';
+      }
+    }());
+  </script>
+
+  <link rel="preload" as="image" href="assets/screenshots/01-start.png" fetchpriority="high">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to main content</a>
+
+  <header class="site-header" id="top">
+    <nav class="nav" aria-labelledby="nav-label">
+      <span class="sr-only" id="nav-label" data-i18n="nav.label">Main navigation</span>
+
+      <a class="brand" href="#top">
+        <img class="brand__mark" src="assets/logo_dark_bg.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand__name">DJ Playlist Companion</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+        <span class="sr-only" data-i18n="nav.menu">Open menu</span>
+      </button>
+
+      <div class="nav__panel" id="nav-menu">
+        <ul class="nav__list">
+          <li><a href="#how-it-works" data-i18n="nav.howItWorks">How It Works</a></li>
+          <li><a href="#features" data-i18n="nav.features">Features</a></li>
+          <li><a href="#demo" data-i18n="nav.demo">Demo</a></li>
+          <li><a href="#download" data-i18n="nav.download">Download</a></li>
+          <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
+        </ul>
+
+        <div class="lang" role="group" aria-label="Language" data-i18n-attr="aria-label:nav.langLabel">
+          <button class="lang__btn" type="button" data-lang="en" aria-pressed="true">EN</button>
+          <span class="lang__sep" aria-hidden="true">|</span>
+          <button class="lang__btn" type="button" data-lang="de" aria-pressed="false">DE</button>
+        </div>
+
+        <a class="btn btn--primary btn--sm" href="#" data-download data-i18n="nav.cta">Download Beta</a>
+      </div>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <p class="eyebrow">
+            <span class="eyebrow__dot" aria-hidden="true"></span>
+            <span data-i18n="hero.eyebrow">Open Beta · Windows 10 &amp; 11</span>
+          </p>
+          <h1 class="hero__title" id="hero-title" data-i18n="hero.title">Stop Fighting Your Music Library.</h1>
+          <p class="hero__sub" data-i18n="hero.subtitle">DJ Playlist Companion helps Engine DJ users organize, clean, analyze and manage large music collections faster and more efficiently.</p>
+
+          <div class="cta-row">
+            <a class="btn btn--primary btn--lg" href="#" data-download data-i18n="hero.ctaPrimary">Download Beta</a>
+            <a class="btn btn--ghost btn--lg" href="#demo" data-i18n="hero.ctaSecondary">Watch Demo</a>
+          </div>
+
+          <ul class="trust">
+            <li class="trust__item" data-i18n="hero.trust1">Free during the 120-day beta</li>
+            <li class="trust__item" data-i18n="hero.trust2">Engine DJ 3.x, 4.x &amp; 5.0+</li>
+            <li class="trust__item" data-i18n="hero.trust3">No telemetry — your data stays local</li>
+            <li class="trust__item" data-i18n="hero.trust4">Automatic backup before every change</li>
+          </ul>
+        </div>
+
+        <figure class="hero__shot">
+          <img src="assets/screenshots/01-start.png" width="1920" height="1032"
+               alt="DJ Playlist Companion start screen showing the Engine DJ library overview" data-i18n-attr="alt:hero.imageAlt"
+               fetchpriority="high" decoding="async">
+        </figure>
+      </div>
+
+      <p class="devices" data-i18n="hero.devices">Built for Engine DJ libraries used on Denon SC LIVE, Prime 4, Prime GO, SC6000 and Numark Mixstream Pro.</p>
+    </section>
+
+    <section class="section" id="why" aria-labelledby="why-title">
+      <div class="container">
+        <header class="section__head">
+          <p class="eyebrow" data-i18n="pain.eyebrow">The daily reality</p>
+          <h2 class="section__title" id="why-title" data-i18n="pain.title">Why Engine DJ Users Need More</h2>
+          <p class="section__sub" data-i18n="pain.subtitle">Engine DJ plays your music. Managing thousands of tracks is a different job — and it is still manual work.</p>
+        </header>
+
+        <div class="grid grid--3" data-list="pain.items">
+          <article class="card">
+            <h3 class="card__title" data-i18n-list="title">Manual playlist organisation</h3>
+            <p class="card__text" data-i18n-list="text">Building playlists track by track, again and again — with no overview of which track already sits in which playlist.</p>
+          </article>
+          <article class="card">
+            <h3 class="card__title" data-i18n-list="title">Missing bulk editing tools</h3>
+            <p class="card__text" data-i18n-list="text">Renaming genres, artists or titles one entry at a time. Even a small cleanup turns into an evening of clicking.</p>
+          </article>
+          <article class="card">
+            <h3 class="card__title" data-i18n-list="title">Slow metadata management</h3>
+            <p class="card__text" data-i18n-list="text">Typos, mixed spellings and inconsistent capitalisation spread until filters and search stop being reliable.</p>
+          </article>
+          <article class="card">
+            <h3 class="card__title" data-i18n-list="title">Repetitive library maintenance</h3>
+            <p class="card__text" data-i18n-list="text">The same routine every few weeks: hunting duplicates, repairing paths, tidying genres. Time you would rather spend mixing.</p>
+          </article>
+          <article class="card">
+            <h3 class="card__title" data-i18n-list="title">Difficult large collection management</h3>
+            <p class="card__text" data-i18n-list="text">The more tracks you own, the harder it gets to keep an overview — and on a device screen every extra step really hurts.</p>
+          </article>
+          <article class="card">
+            <h3 class="card__title" data-i18n-list="title">Lack of advanced productivity features</h3>
+            <p class="card__text" data-i18n-list="text">No set planning by target duration, no energy flow, no history search, no quick preview. Engine DJ simply leaves these gaps.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="features" aria-labelledby="features-title">
+      <div class="container">
+        <header class="section__head">
+          <p class="eyebrow" data-i18n="solution.eyebrow">The solution</p>
+          <h2 class="section__title" id="features-title" data-i18n="solution.title">Built to Solve These Problems</h2>
+          <p class="section__sub" data-i18n="solution.subtitle">Every tool works directly on your existing Engine DJ database — and the companion backs up your library before it writes anything.</p>
+        </header>
+
+        <div class="features" data-list="solution.items">
+          <article class="feature">
+            <figure class="feature__media">
+              <img src="assets/screenshots/03-genre-manager.png" width="1920" height="1032"
+                   alt="Genre Manager grouping spelling variants for batch cleanup" data-i18n-list="alt"
+                   loading="lazy" decoding="async">
+            </figure>
+            <div class="feature__body">
+              <p class="feature__kicker" data-i18n-list="kicker">Batch editing</p>
+              <h3 class="feature__title" data-i18n-list="title">Clean up genres and artists in one pass</h3>
+              <p class="feature__text" data-i18n-list="text">The Genre Manager and Artist Manager group spelling variants, typos and inconsistent capitalisation, then apply one corrected value to all affected tracks at once. A–Z jump bars take you straight to the entry you are looking for.</p>
+              <ul class="feature__list">
+                <li data-i18n-list="bullets.0">Unify spellings such as DnB → Drum &amp; Bass</li>
+                <li data-i18n-list="bullets.1">Correct artist names including accents and umlauts</li>
+                <li data-i18n-list="bullets.2">Preview every change before you save it</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="feature">
+            <figure class="feature__media">
+              <img src="assets/screenshots/02-set-arranger.png" width="1920" height="1032"
+                   alt="Set-Arranger optimising BPM and harmonic key flow" data-i18n-list="alt"
+                   loading="lazy" decoding="async">
+            </figure>
+            <div class="feature__body">
+              <p class="feature__kicker" data-i18n-list="kicker">Faster playlist management</p>
+              <h3 class="feature__title" data-i18n-list="title">Build sets that actually flow</h3>
+              <p class="feature__text" data-i18n-list="text">The Set-Arranger plans your playlist around a harmonic key flow and a BPM curve. Pick a tension profile such as The Wave, Progressive Ramp or Peak-Time and let the companion order the tracks for you.</p>
+              <ul class="feature__list">
+                <li data-i18n-list="bullets.0">Harmonic key flow and BPM analysis across the set</li>
+                <li data-i18n-list="bullets.1">Tension profiles for warm-up, peak time and closing</li>
+                <li data-i18n-list="bullets.2">Drag &amp; drop set preparation with instant feedback</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="feature">
+            <figure class="feature__media">
+              <img src="assets/screenshots/01-start.png" width="1920" height="1032"
+                   alt="Library overview listing tracks and their playlist membership" data-i18n-list="alt"
+                   loading="lazy" decoding="async">
+            </figure>
+            <div class="feature__body">
+              <p class="feature__kicker" data-i18n-list="kicker">Metadata enhancements</p>
+              <h3 class="feature__title" data-i18n-list="title">Know which track sits in which playlist</h3>
+              <p class="feature__text" data-i18n-list="text">Every track shows the playlists it belongs to, and the duplicate cleaner finds the same track in several places — so you can see what is missing from your sets instead of guessing.</p>
+              <ul class="feature__list">
+                <li data-i18n-list="bullets.0">Playlist membership per track at a glance</li>
+                <li data-i18n-list="bullets.1">Duplicate cleaner for tracks and spelling variants</li>
+                <li data-i18n-list="bullets.2">Instant switch between PC and USB libraries</li>
+              </ul>
+            </div>
+          </article>
+          <article class="feature">
+            <figure class="feature__media">
+              <img src="assets/screenshots/05-track-relocator.png" width="1920" height="1032"
+                   alt="Smart Track-Relocator listing missing files with suggested paths" data-i18n-list="alt"
+                   loading="lazy" decoding="async">
+            </figure>
+            <div class="feature__body">
+              <p class="feature__kicker" data-i18n-list="kicker">Library optimization</p>
+              <h3 class="feature__title" data-i18n-list="title">Find tracks that moved or disappeared</h3>
+              <p class="feature__text" data-i18n-list="text">The Smart Track Relocator scans your drives for tracks Engine DJ can no longer find and suggests the correct path. It repairs the database entries instead of forcing a full re-import.</p>
+              <ul class="feature__list">
+                <li data-i18n-list="bullets.0">Detects missing or moved audio files</li>
+                <li data-i18n-list="bullets.1">Suggests matches by name, folder and file size</li>
+                <li data-i18n-list="bullets.2">Repairs library entries in a single run</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="feature">
+            <figure class="feature__media">
+              <img src="assets/screenshots/04-set-history.png" width="1920" height="1032"
+                   alt="Set-History view with played sessions and playlist export" data-i18n-list="alt"
+                   loading="lazy" decoding="async">
+            </figure>
+            <div class="feature__body">
+              <p class="feature__kicker" data-i18n-list="kicker">Workflow automation</p>
+              <h3 class="feature__title" data-i18n-list="title">Turn your played history into next week's set</h3>
+              <p class="feature__text" data-i18n-list="text">Set-History lists past sessions, so you can search what you played and export it as a playlist in one click. Playlist Autofill fills a new playlist by target duration or track count — filtered by BPM range, energy level, genre and rating.</p>
+              <ul class="feature__list">
+                <li data-i18n-list="bullets.0">Search your played setlists and gig history</li>
+                <li data-i18n-list="bullets.1">Autofill by set duration or number of tracks</li>
+                <li data-i18n-list="bullets.2">Filters for BPM range, energy, genre and rating</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="feature">
+            <figure class="feature__media">
+              <img src="assets/screenshots/06-cue-player.png" width="1920" height="1032"
+                   alt="CUE-Player previewing a track with playback controls" data-i18n-list="alt"
+                   loading="lazy" decoding="async">
+            </figure>
+            <div class="feature__body">
+              <p class="feature__kicker" data-i18n-list="kicker">Custom DJ productivity tools</p>
+              <h3 class="feature__title" data-i18n-list="title">Preview, protect and move on</h3>
+              <p class="feature__text" data-i18n-list="text">The built-in CUE Player auditions tracks without leaving the companion — space bar to play, arrow keys to scrub. And every permanent change is preceded by an automatic backup of your library.</p>
+              <ul class="feature__list">
+                <li data-i18n-list="bullets.0">CUE Player with space bar and arrow key control</li>
+                <li data-i18n-list="bullets.1">Automatic safety backups before every change</li>
+                <li data-i18n-list="bullets.2">No telemetry — nothing leaves your machine</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="demo" aria-labelledby="demo-title">
+      <div class="container container--narrow">
+        <header class="section__head section__head--center">
+          <p class="eyebrow" data-i18n="video.eyebrow">Video demonstration</p>
+          <h2 class="section__title" id="demo-title" data-i18n="video.title">See It In Action</h2>
+          <p class="section__sub" data-i18n="video.text">A short walkthrough of the companion: library overview, Set-Arranger, cleanup tools and writing the result back into Engine DJ.</p>
+        </header>
+
+        <div class="video" data-video>
+          <button class="video__facade" type="button" aria-label="Play the demo video" data-i18n-attr="aria-label:video.playLabel">
+            <img class="video__poster" src="https://i.ytimg.com/vi/6UIPTuI5QEQ/maxresdefault.jpg"
+                 width="1280" height="720" alt="" loading="lazy" decoding="async">
+            <span class="video__scrim" aria-hidden="true"></span>
+            <span class="video__play" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="30" height="30" focusable="false" aria-hidden="true">
+                <path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor"></path>
+              </svg>
+            </span>
+            <span class="video__label" data-i18n="video.play">Watch the demo</span>
+          </button>
+        </div>
+
+        <p class="video__note" data-i18n="video.note">The video is hosted on YouTube and only loads after you click play — nothing is requested before that.</p>
+      </div>
+    </section>
+    <section class="section" id="gallery" aria-labelledby="gallery-title">
+      <div class="container">
+        <header class="section__head section__head--center">
+          <p class="eyebrow" data-i18n="gallery.eyebrow">Screenshot showcase</p>
+          <h2 class="section__title" id="gallery-title" data-i18n="gallery.title">Take a Closer Look</h2>
+          <p class="section__sub" data-i18n="gallery.subtitle">Six screens from the current beta build — everything runs on your own machine, completely offline.</p>
+        </header>
+      </div>
+
+      <div class="gallery" data-gallery>
+        <div class="gallery__viewport">
+          <ul class="gallery__track" data-gallery-track data-list="gallery.items">
+            <li class="slide">
+              <figure class="slide__figure">
+                <img src="assets/screenshots/01-start.png" width="1920" height="1032"
+                     alt="Start screen with collection overview and playlist tree" data-i18n-list="alt"
+                     loading="lazy" decoding="async">
+              </figure>
+              <div class="slide__meta">
+                <p class="slide__index" data-i18n-list="index">01</p>
+                <h3 class="slide__title" data-i18n-list="title">Library overview</h3>
+                <p class="slide__text" data-i18n-list="text">Your whole Engine DJ collection with playlists, BPM, key and duration in one window.</p>
+              </div>
+            </li>
+            <li class="slide">
+              <figure class="slide__figure">
+                <img src="assets/screenshots/02-set-arranger.png" width="1920" height="1032"
+                     alt="Set-Arranger planning a playlist with tension profiles" data-i18n-list="alt"
+                     loading="lazy" decoding="async">
+              </figure>
+              <div class="slide__meta">
+                <p class="slide__index" data-i18n-list="index">02</p>
+                <h3 class="slide__title" data-i18n-list="title">Set-Arranger</h3>
+                <p class="slide__text" data-i18n-list="text">Plan a set by duration or track count and optimise the tension curve automatically.</p>
+              </div>
+            </li>
+            <li class="slide">
+              <figure class="slide__figure">
+                <img src="assets/screenshots/03-genre-manager.png" width="1920" height="1032"
+                     alt="Genre Manager with grouped spelling variants" data-i18n-list="alt"
+                     loading="lazy" decoding="async">
+              </figure>
+              <div class="slide__meta">
+                <p class="slide__index" data-i18n-list="index">03</p>
+                <h3 class="slide__title" data-i18n-list="title">Genre Manager</h3>
+                <p class="slide__text" data-i18n-list="text">Group spelling variants and unify them in a single pass instead of editing track by track.</p>
+              </div>
+            </li>
+            <li class="slide">
+              <figure class="slide__figure">
+                <img src="assets/screenshots/04-set-history.png" width="1920" height="1032"
+                     alt="Set-History with played sessions and search" data-i18n-list="alt"
+                     loading="lazy" decoding="async">
+              </figure>
+              <div class="slide__meta">
+                <p class="slide__index" data-i18n-list="index">04</p>
+                <h3 class="slide__title" data-i18n-list="title">Set-History</h3>
+                <p class="slide__text" data-i18n-list="text">Review played sessions, search your setlist and turn a gig into a new playlist.</p>
+              </div>
+            </li>
+            <li class="slide">
+              <figure class="slide__figure">
+                <img src="assets/screenshots/05-track-relocator.png" width="1920" height="1032"
+                     alt="Smart Track-Relocator with suggested file paths" data-i18n-list="alt"
+                     loading="lazy" decoding="async">
+              </figure>
+              <div class="slide__meta">
+                <p class="slide__index" data-i18n-list="index">05</p>
+                <h3 class="slide__title" data-i18n-list="title">Smart Track Relocator</h3>
+                <p class="slide__text" data-i18n-list="text">Reconnect tracks that moved to another folder, drive or USB stick.</p>
+              </div>
+            </li>
+            <li class="slide">
+              <figure class="slide__figure">
+                <img src="assets/screenshots/06-cue-player.png" width="1920" height="1032"
+                     alt="CUE-Player with playback and scrubbing controls" data-i18n-list="alt"
+                     loading="lazy" decoding="async">
+              </figure>
+              <div class="slide__meta">
+                <p class="slide__index" data-i18n-list="index">06</p>
+                <h3 class="slide__title" data-i18n-list="title">CUE Player</h3>
+                <p class="slide__text" data-i18n-list="text">Audition tracks quickly before they land in your set — with keyboard control.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="gallery__controls container">
+          <button class="gallery__btn" type="button" data-gallery-prev>
+            <span class="gallery__btn-icon" aria-hidden="true">&#8592;</span>
+            <span data-i18n="gallery.prev">Previous</span>
+          </button>
+
+          <p class="gallery__status" aria-live="polite" data-gallery-status>1 / 6</p>
+
+          <button class="gallery__btn" type="button" data-gallery-next>
+            <span data-i18n="gallery.next">Next</span>
+            <span class="gallery__btn-icon" aria-hidden="true">&#8594;</span>
+          </button>
+        </div>
+
+        <div class="gallery__dots" data-gallery-dots role="group" aria-label="Choose screenshot" data-i18n-attr="aria-label:gallery.dotsLabel"></div>
+      </div>
+    </section>
+    <section class="section" id="how-it-works" aria-labelledby="how-title">
+      <div class="container">
+        <header class="section__head section__head--center">
+          <p class="eyebrow" data-i18n="how.eyebrow">How it works</p>
+          <h2 class="section__title" id="how-title" data-i18n="how.title">Three Steps to a Cleaner Library</h2>
+          <p class="section__sub" data-i18n="how.subtitle">No migration and no re-import of your music — the companion works with the library you already have.</p>
+        </header>
+
+        <ol class="steps" data-list="how.steps">
+          <li class="step">
+            <p class="step__num" aria-hidden="true">1</p>
+            <h3 class="step__title" data-i18n-list="title">Import and review your library</h3>
+            <p class="step__text" data-i18n-list="text">Point the companion at your Engine Library folder — on your PC, a USB stick or an external SSD. It reads the existing Engine DJ database and shows your collection exactly as it is today. Nothing is changed at this point.</p>
+          </li>
+          <li class="step">
+            <p class="step__num" aria-hidden="true">2</p>
+            <h3 class="step__title" data-i18n-list="title">Apply advanced management tools</h3>
+            <p class="step__text" data-i18n-list="text">Use the Set-Arranger, the duplicate cleaner, the genre and artist managers, the track relocator and the history search to clean up and plan your sets. Every permanent change is backed up before it happens.</p>
+          </li>
+          <li class="step">
+            <p class="step__num" aria-hidden="true">3</p>
+            <h3 class="step__title" data-i18n-list="title">Export and enjoy a cleaner workflow</h3>
+            <p class="step__text" data-i18n-list="text">Write the cleaned playlists back into the Engine DJ database or export them as .m3u files — then carry on with your players exactly as before.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="download" aria-labelledby="beta-title">
+      <div class="container">
+        <div class="beta">
+          <div class="beta__intro">
+            <p class="eyebrow" data-i18n="beta.eyebrow">Beta program</p>
+            <h2 class="section__title" id="beta-title" data-i18n="beta.title">Join the Beta Program</h2>
+            <p class="section__sub" data-i18n="beta.text">DJ Playlist Companion is in beta: every function is unlocked, there are no track limits, and your feedback directly shapes what gets built next.</p>
+
+            <div class="cta-row">
+              <a class="btn btn--primary btn--lg" href="#" data-download data-i18n="beta.cta">Download Latest Beta</a>
+              <a class="btn btn--ghost btn--lg" href="https://github.com/tintronik/DJ-Playlist-Companion-Beta/issues/new?template=bug_report.yml"
+                 target="_blank" rel="noopener noreferrer" data-i18n="beta.ctaSecondary">Report a bug</a>
+            </div>
+
+            <p class="beta__note" data-i18n="beta.note">Windows 10/11 (64 bit). The build is not code-signed yet, so Windows SmartScreen may warn you — choose &quot;More info&quot; → &quot;Run anyway&quot;.</p>
+          </div>
+
+          <ul class="beta__points" data-list="beta.points">
+            <li class="point">
+              <h3 class="point__title" data-i18n-list="title">120 days, full feature set</h3>
+              <p class="point__text" data-i18n-list="text">The test period starts with your first launch. All tools, no limits — no account and no credit card required.</p>
+            </li>
+            <li class="point">
+              <h3 class="point__title" data-i18n-list="title">Feedback is welcome</h3>
+              <p class="point__text" data-i18n-list="text">Report bugs or share ideas in GitHub issues and discussions. Real-world libraries are the most valuable test material.</p>
+            </li>
+            <li class="point">
+              <h3 class="point__title" data-i18n-list="title">Actively developed</h3>
+              <p class="point__text" data-i18n-list="text">Fresh builds appear in the releases section together with notes on what changed in each version.</p>
+            </li>
+            <li class="point">
+              <h3 class="point__title" data-i18n-list="title">Safety first</h3>
+              <p class="point__text" data-i18n-list="text">The companion backs up your library before permanent changes — and please still keep your own backup while testing.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="container container--narrow">
+        <header class="section__head section__head--center">
+          <p class="eyebrow" data-i18n="faq.eyebrow">Questions &amp; answers</p>
+          <h2 class="section__title" id="faq-title" data-i18n="faq.title">Frequently Asked Questions</h2>
+        </header>
+
+        <div class="faq" data-list="faq.items">
+          <div class="faq__item">
+            <h3 class="faq__heading">
+              <button class="faq__trigger" type="button" id="faq-trigger-1" aria-expanded="false" aria-controls="faq-panel-1">
+                <span class="faq__question" data-i18n-list="q">What is DJ Playlist Companion?</span>
+                <span class="faq__icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq__panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">
+              <div class="faq__panel-inner">
+                <p class="faq__answer" data-i18n-list="a">A desktop companion for your Engine DJ library. It organises playlists, cleans up metadata in bulk, plans sets, relocates missing tracks and keeps automatic backups — all directly on your existing Engine DJ database. It is an independent tool, not affiliated with inMusic Brands Inc. or Denon DJ.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <h3 class="faq__heading">
+              <button class="faq__trigger" type="button" id="faq-trigger-2" aria-expanded="false" aria-controls="faq-panel-2">
+                <span class="faq__question" data-i18n-list="q">Does it modify my music files?</span>
+                <span class="faq__icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq__panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2">
+              <div class="faq__panel-inner">
+                <p class="faq__answer" data-i18n-list="a">No. Your audio files are never touched. Changes only happen in the Engine DJ database (m.db), and only when you press save. Before every permanent change the companion creates a backup of your library so you can roll back. As with any beta, please keep your own backup of the library as well.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <h3 class="faq__heading">
+              <button class="faq__trigger" type="button" id="faq-trigger-3" aria-expanded="false" aria-controls="faq-panel-3">
+                <span class="faq__question" data-i18n-list="q">Is Engine DJ required?</span>
+                <span class="faq__icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq__panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3">
+              <div class="faq__panel-inner">
+                <p class="faq__answer" data-i18n-list="a">No. Engine DJ does not have to be installed — an existing Engine Library (database) on your PC, a USB stick or an external SSD is enough. Keep Engine DJ closed while saving, otherwise the database files can be locked.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <h3 class="faq__heading">
+              <button class="faq__trigger" type="button" id="faq-trigger-4" aria-expanded="false" aria-controls="faq-panel-4">
+                <span class="faq__question" data-i18n-list="q">Is the software free during beta?</span>
+                <span class="faq__icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq__panel" id="faq-panel-4" role="region" aria-labelledby="faq-trigger-4">
+              <div class="faq__panel-inner">
+                <p class="faq__answer" data-i18n-list="a">Yes. The beta is free and runs for 120 days with the full feature set and without track limits. After that the app switches to read-only mode: viewing, set planning, audio analysis and backups remain available, saving requires activation. Nothing gets deleted, and a Pro licence is in preparation.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <h3 class="faq__heading">
+              <button class="faq__trigger" type="button" id="faq-trigger-5" aria-expanded="false" aria-controls="faq-panel-5">
+                <span class="faq__question" data-i18n-list="q">How can I provide feedback?</span>
+                <span class="faq__icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq__panel" id="faq-panel-5" role="region" aria-labelledby="faq-trigger-5">
+              <div class="faq__panel-inner">
+                <p class="faq__answer" data-i18n-list="a">Bugs and ideas are collected on GitHub: open an issue with the prepared bug template, or join the discussions for questions and exchange with other testers. Log files live in %LOCALAPPDATA%\DJ Playlist Companion\logs — please check them for personal file paths before uploading.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section final" aria-labelledby="final-title">
+      <div class="container container--narrow">
+        <h2 class="final__title" id="final-title" data-i18n="final.title">Take Control Of Your Engine DJ Library</h2>
+        <p class="final__text" data-i18n="final.text">Join the beta and get a cleaner, faster workflow on the hardware you already own.</p>
+        <a class="btn btn--primary btn--xl" href="#" data-download data-i18n="final.cta">Download Beta Now</a>
+        <p class="final__note" data-i18n="final.note">Free during the beta · Windows 10/11 · No account required</p>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <img src="assets/logo_dark_bg.svg" width="44" height="44" alt="" aria-hidden="true" loading="lazy">
+        <p class="footer__name">DJ Playlist Companion</p>
+        <p class="footer__tagline" data-i18n="footer.tagline">Independent software for Engine DJ libraries. Built for DJs who would rather mix than click.</p>
+      </div>
+
+      <nav class="footer__col" aria-labelledby="footer-sections">
+        <h2 class="footer__col-title" id="footer-sections" data-i18n="footer.sections">Sections</h2>
+        <ul>
+          <li><a href="#how-it-works" data-i18n="nav.howItWorks">How It Works</a></li>
+          <li><a href="#features" data-i18n="nav.features">Features</a></li>
+          <li><a href="#demo" data-i18n="nav.demo">Demo</a></li>
+          <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer__col" aria-labelledby="footer-project">
+        <h2 class="footer__col-title" id="footer-project" data-i18n="footer.project">Project</h2>
+        <ul>
+          <li><a href="https://github.com/tintronik/DJ-Playlist-Companion-Beta/releases/latest" target="_blank" rel="noopener noreferrer" data-i18n="footer.releases">Releases &amp; downloads</a></li>
+          <li><a href="https://github.com/tintronik/DJ-Playlist-Companion-Beta/issues/new?template=bug_report.yml" target="_blank" rel="noopener noreferrer" data-i18n="footer.bugs">Report a bug</a></li>
+          <li><a href="https://github.com/tintronik/DJ-Playlist-Companion-Beta/discussions" target="_blank" rel="noopener noreferrer" data-i18n="footer.discussions">Discussions</a></li>
+          <li><a href="https://github.com/tintronik/DJ-Playlist-Companion-Beta/blob/main/release/SHA256SUMS.txt" target="_blank" rel="noopener noreferrer" data-i18n="footer.checksums">SHA256 checksums</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer__col" aria-labelledby="footer-docs">
+        <h2 class="footer__col-title" id="footer-docs" data-i18n="footer.docs">Documentation</h2>
+        <ul>
+          <li><a href="https://github.com/tintronik/DJ-Playlist-Companion-Beta/blob/main/docs/INSTALLATION.md" target="_blank" rel="noopener noreferrer" data-i18n="footer.installation">Installation guide</a></li>
+          <li><a href="https://github.com/tintronik/DJ-Playlist-Companion-Beta/blob/main/docs/FAQ.md" target="_blank" rel="noopener noreferrer" data-i18n="footer.faq">FAQ (German)</a></li>
+          <li><a href="https://github.com/tintronik/DJ-Playlist-Companion-Beta/blob/main/BETA_TESTANLEITUNG.md" target="_blank" rel="noopener noreferrer" data-i18n="footer.testGuide">Beta test guide (German)</a></li>
+          <li><a href="https://github.com/tintronik/DJ-Playlist-Companion-Beta/blob/main/DATENSCHUTZ.md" target="_blank" rel="noopener noreferrer" data-i18n="footer.privacy">Privacy (German)</a></li>
+          <li><a href="https://github.com/tintronik/DJ-Playlist-Companion-Beta/blob/main/EULA.md" target="_blank" rel="noopener noreferrer" data-i18n="footer.eula">Licence (EULA)</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="container footer__legal">
+      <p data-i18n="footer.disclaimer">DJ Playlist Companion is an independent software project and is not affiliated with inMusic Brands Inc. or Denon DJ. Engine DJ, Engine OS and Denon DJ are registered trademarks of inMusic Brands Inc.</p>
+      <p data-i18n="footer.copyright">© 2026 Tintronik · DJ Playlist Companion. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <button class="to-top" type="button" data-to-top hidden aria-label="Back to top" data-i18n-attr="aria-label:nav.toTop">&#8593;</button>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
